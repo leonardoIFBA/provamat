@@ -3,11 +3,11 @@ package com.example;
 import java.sql.SQLException;
 
 import com.example.model.Aluno;
-import com.example.repository.AlunosJDBC;
 import com.example.repository.AlunosJPA;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
+        
         System.out.println("Prova da primeira Unidade!");
         
         Aluno a = new Aluno();
@@ -22,7 +22,7 @@ public class Main {
         jpa.adicionar(a);
 
         //testando jdbc
-        AlunosJDBC.inserir(a);
+        
 
         //listando alunos
         System.out.println(jpa.listarTodos());
