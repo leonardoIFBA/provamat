@@ -14,16 +14,20 @@ public class AlunosJPA {
     }
 
     public void adicionar(Aluno a){
-        EntityTransaction et = manager.getTransaction();
-        et.begin();
-        manager.persist(a);
-        et.commit();
+        
     }
     
     public void atualizar(Aluno a){
         EntityTransaction et = manager.getTransaction();
         et.begin();
         manager.merge(a);
+        et.commit();
+    }
+
+    public void atualizar(Aluno a){
+        EntityTransaction et = manager.getTransaction();
+        et.begin();
+        manager.remove(a);
         et.commit();
     }
         
