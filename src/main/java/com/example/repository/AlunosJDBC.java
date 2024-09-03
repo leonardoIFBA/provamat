@@ -12,24 +12,7 @@ import com.example.model.Aluno;
 public class AlunosJDBC {
 
     public static void inserir(Aluno a) throws SQLException{
-        String sql = "insert into Aluno (matricula, nome, responsavel, contato, email)" + "values (?, ?, ?, ?, ?)";
-        try(Connection con = JdbcUtil.getConexao()){
-            
-            PreparedStatement ps = con.prepareStatement(sql);
-            ps.setString(1,a.getMatricula());
-            ps.setString(2,a.getNome());
-            ps.setString(3,a.getResponsavel());
-            ps.setString(4, a.getContato());
-            ps.setString(5, a.getEmail());
-            
-            int resultado = ps.executeUpdate();
-            if(resultado > 0){
-                System.out.println("Aluno cadastrado com sucesso!!!");
-            }
-        }catch(Exception e){
-            System.out.println("Erro ao inserir um Aluno");
-            e.printStackTrace();
-        }
+       
     }
 
     public static void alterar(Aluno a) throws SQLException{
@@ -52,5 +35,18 @@ public class AlunosJDBC {
             e.printStackTrace();
         }
     }
+
+    public static List<Prof Aluno essor> listarTodos() throws SQLException, Exception{
+        String sql = "select * from Aluno";
+        List< Aluno> alunos = new ArrayList<>();
+
+        try(Connection con = JdbcUtil.getConexao()){
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            while(rs.next()){
+                Aluno a = new Aluno ();
+                a.setId(rs.getInt("id"));
+	    a.setMatricula(rs.getString(“matricula”));
+
         
 }
