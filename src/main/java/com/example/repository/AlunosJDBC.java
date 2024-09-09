@@ -36,7 +36,7 @@ public class AlunosJDBC {
         }
     }
 
-    public static List<Prof Aluno essor> listarTodos() throws SQLException, Exception{
+    public static List<Aluno> listarTodos() throws SQLException, Exception{
         String sql = "select * from Aluno";
         List< Aluno> alunos = new ArrayList<>();
 
